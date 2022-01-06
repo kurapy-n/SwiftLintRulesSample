@@ -1,0 +1,158 @@
+disabled_rules:
+    - line_length # CocoaがSwiftに対応してくれないと長さはあんまり意味ない
+    - identifier_name # 'id'などのプロパティ名は問題ないため
+    - function_parameter_count # ObjCのメソッドで5つ以上の引数を使うと警告出てしまうため無効にする
+    - inclusive_language # `v0.41`からtrueになった。masterというワードに反応して警告が出てしまうので無効にする
+    # opt_in_rules
+    - anonymous_argument_in_multiline_closure # 括弧の前後の改行を除いて1行でもダメで使い勝手が悪い
+    - attributes # Attributesを書く位置はある程度自由があって良い
+    - balanced_xctest_lifecycle # setUp()かtearDown()のどちらか一方だけでいい時もある
+    - conditional_returns_on_newline # guardでの早期リターンは1行で書きたい場合も多い
+    - discouraged_none_name # UIKitのpublic enumにはnoneを持つものも多いので使いたい
+    - discouraged_object_literal # initializerよりobject literalを使いたい場合もある
+    - discouraged_optional_boolean # APIのレスポンスで必ずしも返却されるとは限らない場合がある
+    - discouraged_optional_collection # parametersで大量にwarningが出るが、対応する必要性を感じない
+    - expiring_todo # TODOコメントを書くとwarningで表示されるので、需要がなさそう
+    - explicit_acl # 宣言時にinternalをつける必要性を感じない
+    - explicit_enum_raw_value # rawValueを明示的に書くのは面倒だし可読性が低くなる場合もある
+    - explicit_self # analyzer_rules。明示的にselfをつける必要性を感じない
+    - explicit_top_level_acl # 宣言時にinternalをつける必要性を感じない
+    - explicit_type_interface # プロパティの宣言時に必ず型を書く必要性を感じない
+    - extension_access_modifier # どちらでもいい
+    - file_header # 自動生成されるコメントにwarningがつくので無効
+    - file_types_order # 順番までガチガチに縛らなくても良さそう
+    - function_default_parameter_at_end # デフォルト値があるパラメータを先に指定したい場合もある
+    - ibinspectable_in_extension # 角丸や枠線のためにUIViewやUIButtonのExtensionsで使いたい、対応する必要性を感じない
+    - implicit_return # 全てに暗黙的なreturnを強制する必要はない
+    - implicitly_unwrapped_optional # ViewController内のpresenterプロパティは暗黙的アンラップ型にするしかない
+    - indentation_width # メソッドの引数が複数ある時、引数のカンマの直後で改行してXcodeがインデントを揃えてくれたものもwarningが出る
+    - legacy_objc_type #Objcのコードがなくなったら検討する
+    - let_var_whitespace # 変数を宣言した後に必ず空行を入れる必要はない
+    - missing_docs # 全てにドキュメントを書く必要はない
+    - multiline_arguments_brackets # (引数1,\n引数2)という書き方ができない
+    - multiline_parameters_brackets # (引数1,\n引数2)という書き方ができない
+    - no_extension_access_modifier # extensionを全てinternalにする必要はない
+    - no_grouping_extension # extensionを使ってグルーピングしたい時もある
+    - nslocalizedstring_key # NSLocalizedStringを使用していない
+    - nslocalizedstring_require_bundle # NSLocalizedStringを使用していない
+    - number_separator # UnitTestで書いたidなどが見づらくなる
+    - override_in_extension # UINavigationController+Extensionsなどでoverrideできない
+    - pattern_matching_keywords # AssociatedValueで変数化する値が複数の時だけ書き方が異なるのは可読性が悪くなる
+    - prefer_nimble # XCTAssertも使いたい
+    - prefixed_toplevel_constant # グローバル変数はなるべく少ないようにするべきだが、kをつけるかどうかは好み
+    - private_outlet # private(set)も許容されず、textFieldに直接textを挿入できなくなる
+    - private_subject # private(set)も許容されず、ViewModelやManagerにSubjectを持たせられなくなってしまう
+    - prohibited_interface_builder # Interface Builderは使用してよい
+    - prohibited_super_call # super.loadView()を呼んではいけないのはInterfaceBuilderでViewControllerを生成するときのみ
+    - quick_discouraged_call # QuickよりもXCTestを使うケースが多いので除外する
+    - quick_discouraged_focused_test # QuickよりもXCTestを使うケースが多いので除外する
+    - quick_discouraged_pending_test # QuickよりもXCTestを使うケースが多いので除外する
+    - redundant_type_annotation # ついていても問題ない
+    - required_deinit # 全てにdeinitを書くのは冗長
+    - required_enum_case # 特殊な例が存在しない限り実装不要
+    - sorted_imports # sortしなくてもいい
+    - strong_iboutlet # weakで定義した方がいい場合もある
+    - switch_case_on_newline # 単純に値をreturnするだけの時、caseが多い場合に可読性が下がる
+    - trailing_closure # 強制するほどでもない
+    - type_contents_order # 順番を厳密に指定する必要はない
+    - unavailable_function # 未実装の関数全てに `@available(*, unavailable)` を記載する必要はない
+    - unowned_variable_capture # 確実にnilにならない場合はunownedにしても問題ない
+    - unused_declaration # analyzer_rules。peripheryと役割が被りそう
+    - vertical_whitespace_between_cases # caseの間に必ず空行を入れてしまうと、caseが多い場合に可読性が下がる
+    - vertical_whitespace_opening_braces # 括弧の直後に空行があった方が見やすい時もある
+    - yoda_condition # 定数を左に置いたほうがわかりやすい場合もある
+
+opt_in_rules:
+    - anyobject_protocol
+    - array_init
+    - closure_body_length
+    - closure_end_indentation
+    - closure_spacing
+    - collection_alignment
+    - contains_over_filter_count
+    - contains_over_filter_is_empty
+    - contains_over_first_not_nil
+    - contains_over_range_nil_comparison
+    - convenience_type
+    - discarded_notification_center_observer
+    - discouraged_assert
+    - empty_collection_literal
+    # - empty_count # Warningの件数が多いので一旦無効にする
+    - empty_string
+    - empty_xctest_method
+    - enum_case_associated_values_count
+    - explicit_init
+    - fallthrough
+    - fatal_error_message
+    # - file_name # *+*Test.swift でwarningが出てしまい、例外をうまく弾けるように検討する。一旦無効にしておく
+    - file_name_no_space
+    - first_where
+    - flatmap_over_map_reduce
+    - force_unwrapping
+    - identical_operands
+    - joined_default_parameter
+    - last_where
+    - legacy_multiple
+    - legacy_random
+    - literal_expression_end_indentation
+    - lower_acl_than_parent
+    - modifier_order
+    - multiline_arguments
+    - multiline_function_chains
+    - multiline_literal_brackets
+    - multiline_parameters
+    - nimble_operator
+    # - object_literal # Warningの件数が多いので一旦無効にする
+    - operator_usage_whitespace
+    - optional_enum_case_matching
+    - overridden_super_call
+    - prefer_self_type_over_type_of_self
+    - prefer_zero_over_explicit_init
+    - private_action
+    - raw_value_for_camel_cased_codable_enum
+    - reduce_into
+    - redundant_nil_coalescing
+    - single_test_class
+    - sorted_first_last
+    - static_operator
+    - strict_fileprivate
+    - test_case_accessibility
+    - toggle_bool
+    - unneeded_parentheses_in_closure_argument
+    - untyped_error_in_catch
+    - vertical_parameter_alignment_on_call
+    - vertical_whitespace_closing_braces
+    # - xct_specific_matcher # オプショナルのBoolで誤検知 https://github.com/realm/SwiftLint/issues/3575
+
+excluded:
+    # （省略）
+
+# Configuration Settings
+
+closure_body_length:
+    warning: 40
+    error: 100
+
+cyclomatic_complexity:
+    warning: 20
+    error: 30
+
+# empty_count:
+#     severity: warning
+
+file_length:
+    warning: 1000
+    error: 1000
+
+function_body_length:
+    warning: 100
+    error: 200
+
+nesting:
+    type_level: 2
+
+trailing_comma:
+    mandatory_comma: true
+
+type_name:
+    min_length: 0

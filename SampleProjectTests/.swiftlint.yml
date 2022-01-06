@@ -1,0 +1,4 @@
+disabled_rules:
+    - closure_body_length # XCTContext.runActivityで行数が嵩んでしまう
+    - fatal_error_message # メッセージ無しでfatalErrorは好ましくないのでXCTFailに直したい。数が多いので一旦無効にしておく
+    - force_unwrapping # テストではforce unwrappingしたい
